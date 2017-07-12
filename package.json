@@ -1,6 +1,6 @@
 {
   "name": "caninameit",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "A cli tool to help you see a npm name is already taken because this a problem now 😱",
   "license": "MIT",
   "repository": "SaraVieira/caninameit",
