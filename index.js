@@ -28,8 +28,13 @@ const showAuthor = (data) => {
 	return maintaners(data.maintainers).join('\n  ');
 }
 
+const cancel = () => {
+	console.log(chalk.red.bold(getText('noParams')));
+	return false;
+}
+
 if(!cli.input[0]) {
-	return console.log(chalk.red.bold(getText('noParams')))
+	cancel();
 }
 
 packagesName.map((p) => {
