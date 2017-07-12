@@ -1,6 +1,6 @@
 {
   "name": "caninameit",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A cli tool to help you see a npm name is already taken because this a problem now 😱",
   "license": "MIT",
   "repository": "SaraVieira/caninameit",
@@ -18,15 +18,15 @@
     "lint": "eslint **/*.js"
   },
   "files": [
-    "index.js"
-		"src/text.js"
+    "index.js",
+    "src/text.js"
   ],
   "keywords": [
     "cli",
     "cli-app",
     "can i name it",
     "npm module",
-		"caninameit"
+    "caninameit"
   ],
   "dependencies": {
     "chalk": "^2.0.1",
