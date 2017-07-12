@@ -10,8 +10,7 @@ const fetch = require('node-fetch');
 
 
 const flags = cli.flags;
-const packageName = cli.input[0];
-const uri = `https://registry.npmjs.org/${packageName}`
+const packagesName = cli.input;
 const params = {timeout: 1000}
 
 const spinner = ora('Looking for your name').start();
@@ -33,12 +32,14 @@ if(!cli.input[0]) {
 	return console.log(chalk.red.bold(getText('noParams')))
 }
 
-fetch(uri).then((res) => res.json()).then((data) => {
-if(Object.keys(data).length === 0) {
-	return spinner.succeed(chalk.green.bold(getText('success')));
-}
-spinner.fail(chalk.red.bold(getText('error')));
-console.log(chalk`
+packagesName.map((p) => {
+	const uri = `https://registry.npmjs.org/${p}`
+	fetch(uri).then((res) => res.json()).then((data) => {
+	if(Object.keys(data).length === 0) {
+		return spinner.succeed(chalk.green.bold(`${p} - ${getText('success')}`));
+	}
+	spinner.fail(chalk.red.bold(`${p} - ${getText('error')}`));
+	console.log(chalk`
 It was created by:
   {blue.bold ${showAuthor(data)} }
 
@@ -46,7 +47,8 @@ It's at version:
   {blue.bold ${data['dist-tags'].latest} }
 
 You can find it at:
-  https://www.npmjs.com/package/${packageName}
+  https://www.npmjs.com/package/${p}
 
-`);
+	`);
+	})
 })
