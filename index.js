@@ -15,7 +15,7 @@ const params = {timeout: 1000}
 
 const spinner = ora('Looking for your name').start();
 
-const maintaners = (maintaners) => maintaners.map(maintaner => `${maintaner.name} - ${maintaner.email}\n`)
+const maintaners = (maintaners) => maintaners.map(maintaner => `${maintaner.name} - ${maintaner.email}`)
 
 const showAuthor = (data) => {
 	if(data.author) {
@@ -25,7 +25,7 @@ const showAuthor = (data) => {
 		return `${data.author.name}`
 	}
 
-	return maintaners(data.maintainers);
+	return maintaners(data.maintainers).join('\n  ');
 }
 
 if(!cli.input[0]) {
