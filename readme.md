@@ -10,22 +10,24 @@ $ npm install --global caninameit
 ```
 
 ```
+$ yarn global caninameit
+```
+
+```
 $ caninameit --help
 
   Usage
     caninameit [input]
 
-  Options
-    --foo  Lorem ipsum [Default: false]
-
   Examples
-    $ caninameit
-    unicorns & rainbows
-    $ caninameit ponies
-    ponies & rainbows
+    $ caninameit react
+     > Damn it, the name is already taken ☹️
+
+	 $ caninameit react2
+    > NICE! The name is not taken you can claim it! 🍕 🎉🎉🎉
 ```
 
 
 ## License
 
-MIT © [<%= name %>](https://github.com/<%= githubUsername %>)
+MIT © [Sara Vieira](https://github.com/SaraVieira)
