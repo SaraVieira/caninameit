@@ -1,6 +1,7 @@
 # Can I name it ? 
 [![Build Status](https://travis-ci.org/SaraVieira/caninameit.svg?branch=master)](https://travis-ci.org/SaraVieira/caninameit)
 
+A cli tool to help you see a npm name is already taken because this a problem now 😱
 
 ## Install
 
