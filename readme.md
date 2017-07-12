@@ -1,4 +1,5 @@
-# caninameit [![Build Status](https://travis-ci.org/SaraVieira/caninameit.svg?branch=master)](https://travis-ci.org/SaraVieira/caninameit)
+# Can I name it ? 
+[![Build Status](https://travis-ci.org/SaraVieira/caninameit.svg?branch=master)](https://travis-ci.org/SaraVieira/caninameit)
 
 
 ## Install
