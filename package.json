@@ -14,7 +14,7 @@
     "node": ">=4"
   },
   "scripts": {
-    "test": "xo && ava"
+    "test": "xo && nyc ava --verbose"
   },
   "files": [
     "index.js",
@@ -36,8 +36,8 @@
   "devDependencies": {
     "ava": "^0.20.0",
     "babel-cli": "^6.24.1",
-    "babel-env": "^2.4.1",
-    "xo": "^0.18.2",
-    "execa": "^0.7.0"
+    "execa": "^0.7.0",
+    "nyc": "^11.0.3",
+    "xo": "^0.18.2"
   }
 }
