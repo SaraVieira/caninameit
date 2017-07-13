@@ -14,8 +14,7 @@
     "node": ">=4"
   },
   "scripts": {
-    "test": "xo && ava",
-    "lint": "eslint **/*.js"
+    "test": "xo && ava"
   },
   "files": [
     "index.js",
