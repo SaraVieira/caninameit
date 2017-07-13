@@ -1,17 +1,19 @@
 #!/usr/bin/env node
 'use strict';
 const meow = require('meow');
-const canisuseit = require('.');
 const chalk = require('chalk');
-const getText = require('./src/text');
 const ora = require('ora');
+const fetch = require('node-fetch');
+const getText = require('./src/text');
 
 const cli = meow(getText('usage'));
-const fetch = require('node-fetch');
 
-const flags = cli.flags;
 const packagesName = cli.input;
-const params = {timeout: 1000};
+/*
+  These will be useful later:
+  const flags = cli.flags;
+  const params = {timeout: 1000};
+*/
 
 const spinner = ora('Looking for your name').start();
 
@@ -39,7 +41,7 @@ if (!cli.input[0]) {
 
 packagesName.map(p => {
 	const uri = `https://registry.npmjs.org/${p}`;
-	fetch(uri).then(res => res.json()).then(data => {
+	return fetch(uri).then(res => res.json()).then(data => {
 		if (Object.keys(data).length === 0) {
 			return spinner.succeed(chalk.green.bold(`${p} - ${getText('success')}`));
 		}
