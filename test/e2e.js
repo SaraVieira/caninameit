@@ -1,18 +1,18 @@
 const test = require('ava');
 const execa = require('execa');
 
-test('package name not given', t => {
+test('package name not given', async t => {
 	const expected = '\nYou need to pass a package name so I can do my thing 😉';
 
-	return execa('node', ['index']).then(result => {
+	await execa('node', ['index']).then(result => {
 		t.is(result.stdout, expected);
 	});
 });
 
-test('package is available', t => {
+test('package is available', async t => {
 	const expected = '✔ no-way-this-is-taken - NICE! The name is not taken you can claim it! 🍕 🎉🎉🎉';
 
-	return execa('node', ['index', 'no-way-this-is-taken']).then(result => {
+	await execa('node', ['index', 'no-way-this-is-taken']).then(result => {
     /*
       Found a bug here
 
@@ -30,7 +30,7 @@ test('package is available', t => {
 
   Example: https://npmjs.com/@siddharthkp/empty
 */
-test('package already exists', t => {
+test('package already exists', async t => {
 	const expectedStderr = '✖ react - Damn it, the name is already taken ☹️';
 	const expectedStdout = `
 It was created by:
@@ -45,13 +45,13 @@ You can find it at:
 
 	`;
 
-	return execa('node', ['index', 'react']).then(result => {
+	await execa('node', ['index', 'react']).then(result => {
 		t.is(result.stderr, expectedStderr);
 		t.is(result.stdout, expectedStdout);
 	});
 });
 
-test('gives help text', t => {
+test('gives help text', async t => {
 	const expected = `
   A cli tool to help you see a npm name is already taken because this a problem now 😱
 
@@ -63,7 +63,7 @@ test('gives help text', t => {
      > No this name is already taken
 	`;
 
-	return execa('node', ['index', '--help']).then(result => {
+	await execa('node', ['index', '--help']).then(result => {
 		t.is(result.stdout, expected);
 	});
 });
