@@ -48,10 +48,10 @@ packagesName.map(p => {
 		spinner.fail(chalk.red.bold(`${p} - ${getText('error')}`));
 		console.log(chalk`
 It was created by:
-  {blue.bold ${showAuthor(data)} }
+  {blue.bold ${showAuthor(data)}}
 
 It's at version:
-  {blue.bold ${data['dist-tags'].latest} }
+  {blue.bold ${data['dist-tags'].latest}}
 
 You can find it at:
   https://www.npmjs.com/package/${p}
