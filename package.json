@@ -37,9 +37,6 @@
     "ava": "^0.20.0",
     "babel-cli": "^6.24.1",
     "babel-env": "^2.4.1",
-    "eslint": "^4.2.0",
-    "eslint-config-airbnb-base": "^11.2.0",
-    "eslint-plugin-import": "^2.7.0",
     "xo": "^0.18.2"
   }
 }
