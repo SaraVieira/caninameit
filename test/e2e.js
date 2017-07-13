@@ -51,6 +51,13 @@ You can find it at:
 	});
 });
 
+test('package already exists but with idc flag', async t => {
+	const expectedStderr = '✖ react - Damn it, the name is already taken ☹️';
+	await execa('node', ['index', 'react', '--idc']).then(result => {
+		t.is(result.stderr, expectedStderr);
+	});
+});
+
 test('gives help text', async t => {
 	const expected = `
   A cli tool to help you see a npm name is already taken because this a problem now 😱
