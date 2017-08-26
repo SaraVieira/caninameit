@@ -5,13 +5,26 @@ const chalk = require('chalk');
 const ora = require('ora');
 const fetch = require('node-fetch');
 const getText = require('./src/text');
-const getStuff = require('./src/get-data');
 
 const cli = meow(getText('usage'));
 const flags = cli.flags;
 const packagesName = cli.input;
 
 const spinner = ora('Looking for your name').start();
+
+const getMaintainers = maintainers =>
+  maintainers.map(maintainer => `${maintainer.name} - ${maintainer.email}`);
+
+const getAuthor = data => {
+	if (data.author) {
+		if (data.author.name && data.author.url) {
+			return `${data.author.name} - ${data.author.url}`;
+		}
+		return `${data.author.name}`;
+	}
+
+	return getMaintainers(data.maintainers).join('\n  ');
+};
 
 const cancel = () => {
 	console.log(chalk.red.bold(getText('noParams')));
@@ -32,7 +45,7 @@ packagesName.map(p => {
 		if (!flags.idc) {
 			console.log(chalk`
 It was created by:
-  {blue.bold ${getStuff.getAuthor(data)}}
+  {blue.bold ${getAuthor(data)}}
 
 It's at version:
   {blue.bold ${data['dist-tags'].latest}}

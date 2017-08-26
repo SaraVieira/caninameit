@@ -51,6 +51,31 @@ You can find it at:
 	});
 });
 
+test('package already exists wih maintainers', async t => {
+	const expectedStderr = '✖ react - Damn it, the name is already taken ☹️';
+	const expectedStdout = `
+It was created by:
+  flarnie - flarnie.npm@gmail.com
+  gaearon - dan.abramov@gmail.com
+  trueadm - dg@domgan.com
+  brianvaughn - briandavidvaughn@gmail.com
+  fb - opensource+npm@fb.com
+  spicyj - ben@benalpert.com
+
+It's at version:
+  15.6.1
+
+You can find it at:
+  https://www.npmjs.com/package/react
+
+	`;
+
+	await execa('node', ['index', 'react']).then(result => {
+		t.is(result.stderr, expectedStderr);
+		t.is(result.stdout, expectedStdout);
+	});
+});
+
 test('package already exists but with idc flag', async t => {
 	const expectedStderr = '✖ react - Damn it, the name is already taken ☹️';
 	await execa('node', ['index', 'react', '--idc']).then(result => {
