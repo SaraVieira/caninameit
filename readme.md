@@ -10,7 +10,7 @@ $ npm install --global caninameit
 ```
 
 ```
-$ yarn global caninameit
+$ yarn global add caninameit
 ```
 
 ## Examples
