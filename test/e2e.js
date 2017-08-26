@@ -10,7 +10,8 @@ test('package name not given', async t => {
 });
 
 test('package is available', async t => {
-	const expected = '✔ no-way-this-is-taken - NICE! The name is not taken you can claim it! 🍕 🎉🎉🎉';
+	const expected =
+    '✔ no-way-this-is-taken - NICE! The name is not taken you can claim it! 🍕 🎉🎉🎉';
 
 	await execa('node', ['index', 'no-way-this-is-taken']).then(result => {
     /*
@@ -31,21 +32,20 @@ test('package is available', async t => {
   Example: https://npmjs.com/@siddharthkp/empty
 */
 test('package already exists', async t => {
-	const expectedStderr = '✖ react - Damn it, the name is already taken ☹️';
+	const expectedStderr = '✖ preact - Damn it, the name is already taken ☹️';
 	const expectedStdout = `
 It was created by:
-  fb - opensource+npm@fb.com
-  spicyj - ben@benalpert.com
+  Jason Miller
 
 It's at version:
-  15.6.1
+  8.2.4
 
 You can find it at:
-  https://www.npmjs.com/package/react
+  https://www.npmjs.com/package/preact
 
 	`;
 
-	await execa('node', ['index', 'react']).then(result => {
+	await execa('node', ['index', 'preact']).then(result => {
 		t.is(result.stderr, expectedStderr);
 		t.is(result.stdout, expectedStdout);
 	});
