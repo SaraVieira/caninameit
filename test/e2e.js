@@ -38,7 +38,7 @@ It was created by:
   Jason Miller
 
 It's at version:
-  8.2.4
+  8.2.5
 
 You can find it at:
   https://www.npmjs.com/package/preact
@@ -55,15 +55,16 @@ test('package already exists wih maintainers', async t => {
 	const expectedStderr = '✖ react - Damn it, the name is already taken ☹️';
 	const expectedStdout = `
 It was created by:
+  acdlite - acdlite@me.com
+  sophiebits - npm@sophiebits.com
   flarnie - flarnie.npm@gmail.com
   gaearon - dan.abramov@gmail.com
   trueadm - dg@domgan.com
   brianvaughn - briandavidvaughn@gmail.com
   fb - opensource+npm@fb.com
-  spicyj - ben@benalpert.com
 
 It's at version:
-  15.6.1
+  16.0.0
 
 You can find it at:
   https://www.npmjs.com/package/react
