@@ -5,9 +5,7 @@
 
 A cli tool to help you see a npm name is already taken because this a problem now 😱
 
-<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/TcwA1EShekGpPzRyQvGn9ysQ/SaraVieira/caninameit'>
-  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/TcwA1EShekGpPzRyQvGn9ysQ/SaraVieira/caninameit.svg' />
-</a>
+
 
 ## Install
 
