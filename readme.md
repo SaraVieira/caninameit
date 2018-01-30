@@ -26,7 +26,7 @@ $ caninameit --help
     caninameit [input] {--flag}
 
   Examples
-    $ caninameit react
+    $ caninameit preact
      > Damn it, the name is already taken ☹️
 
 		 It was created by:
