@@ -1,22 +1,22 @@
 # Can I name it ?
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/SaraVieira/caninameit.svg)](https://greenkeeper.io/) [![Build Status](https://travis-ci.org/SaraVieira/caninameit.svg?branch=master)](https://travis-ci.org/SaraVieira/caninameit)
+[![Build Status](https://travis-ci.org/SaraVieira/caninameit.svg?branch=master)](https://travis-ci.org/SaraVieira/caninameit)
 
 A cli tool to help you see a npm name is already taken because this a problem now 😱
 
 ## Install
 
-```
-$ npm install --global caninameit
+```sh
+npm install --global caninameit
 ```
 
-```
-$ yarn global add caninameit
+```sh
+yarn global add caninameit
 ```
 
 ## Examples
 
-```
+```sh
 $ caninameit --help
 
   Usage
