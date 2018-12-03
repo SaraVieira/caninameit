@@ -1,11 +1,8 @@
 # Can I name it ?
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/SaraVieira/caninameit.svg)](https://greenkeeper.io/)
-[![Build Status](https://travis-ci.org/SaraVieira/caninameit.svg?branch=master)](https://travis-ci.org/SaraVieira/caninameit)
+[![Greenkeeper badge](https://badges.greenkeeper.io/SaraVieira/caninameit.svg)](https://greenkeeper.io/) [![Build Status](https://travis-ci.org/SaraVieira/caninameit.svg?branch=master)](https://travis-ci.org/SaraVieira/caninameit)
 
 A cli tool to help you see a npm name is already taken because this a problem now 😱
-
-
 
 ## Install
 
@@ -45,10 +42,9 @@ $ caninameit --help
     > NICE! The name is not taken you can claim it! 🍕 🎉🎉🎉
 ```
 
-
 ## TODO
-	- Add publish flag to auto publish a package and secure your name
 
+    - Add publish flag to auto publish a package and secure your name
 
 ## License
 

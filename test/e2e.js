@@ -1,27 +1,27 @@
-const test = require('ava');
-const execa = require('execa');
+const test = require('ava')
+const execa = require('execa')
 
 test('package name not given', async t => {
-	const expected = '\nYou need to pass a package name so I can do my thing 😉';
+  const expected = '\nYou need to pass a package name so I can do my thing 😉'
 
-	await execa('node', ['index']).then(result => {
-		t.is(result.stdout, expected);
-	});
-});
+  await execa('node', ['index']).then(result => {
+    t.is(result.stdout, expected)
+  })
+})
 
 test('package is available', async t => {
-	const expected =
-    '✔ no-way-this-is-taken - NICE! The name is not taken you can claim it! 🍕 🎉🎉🎉';
+  const expected =
+		'✔ no-way-this-is-taken - NICE! The name is not taken you can claim it! 🍕 🎉🎉🎉'
 
-	await execa('node', ['index', 'no-way-this-is-taken']).then(result => {
+  await execa('node', ['index', 'no-way-this-is-taken']).then(result => {
     /*
       Found a bug here
 
       The message is given in stderr, not stdout
     */
-		t.is(result.stderr, expected);
-	});
-});
+    t.is(result.stderr, expected)
+  })
+})
 
 /*
   This is very fragile test, as it depends on an external project.
@@ -32,60 +32,34 @@ test('package is available', async t => {
   Example: https://npmjs.com/@siddharthkp/empty
 */
 test('package already exists', async t => {
-	const expectedStderr = '✖ preact - Damn it, the name is already taken ☹️';
-	const expectedStdout = `
+  const expectedStderr =
+		'✖ @siddharthkp/empty - Damn it, the name is already taken ☹️'
+  const expectedStdout = `
 It was created by:
-  Jason Miller
+  siddharthkp - siddharth.kshetrapal@gmail.com
 
 It's at version:
-  8.2.5
+  0.0.0
 
 You can find it at:
-  https://www.npmjs.com/package/preact
+  https://www.npmjs.com/package/@siddharthkp/empty
+`
 
-	`;
-
-	await execa('node', ['index', 'preact']).then(result => {
-		t.is(result.stderr, expectedStderr);
-		t.is(result.stdout, expectedStdout);
-	});
-});
-
-test('package already exists wih maintainers', async t => {
-	const expectedStderr = '✖ react - Damn it, the name is already taken ☹️';
-	const expectedStdout = `
-It was created by:
-  acdlite - acdlite@me.com
-  sophiebits - npm@sophiebits.com
-  flarnie - flarnie.npm@gmail.com
-  gaearon - dan.abramov@gmail.com
-  trueadm - dg@domgan.com
-  brianvaughn - briandavidvaughn@gmail.com
-  fb - opensource+npm@fb.com
-
-It's at version:
-  16.0.0
-
-You can find it at:
-  https://www.npmjs.com/package/react
-
-	`;
-
-	await execa('node', ['index', 'react']).then(result => {
-		t.is(result.stderr, expectedStderr);
-		t.is(result.stdout, expectedStdout);
-	});
-});
+  await execa('node', ['index', '@siddharthkp/empty']).then(result => {
+    t.is(result.stderr.toString(), expectedStderr)
+    t.is(result.stdout.toString(), expectedStdout)
+  })
+})
 
 test('package already exists but with idc flag', async t => {
-	const expectedStderr = '✖ react - Damn it, the name is already taken ☹️';
-	await execa('node', ['index', 'react', '--idc']).then(result => {
-		t.is(result.stderr, expectedStderr);
-	});
-});
+  const expectedStderr = '✖ react - Damn it, the name is already taken ☹️'
+  await execa('node', ['index', 'react', '--idc']).then(result => {
+    t.is(result.stderr, expectedStderr)
+  })
+})
 
 test('gives help text', async t => {
-	const expected = `
+  const expected = `
   A cli tool to help you see a npm name is already taken because this a problem now 😱
 
   Usage
@@ -94,9 +68,9 @@ test('gives help text', async t => {
   Examples
     $ canisuseit lodash
      > No this name is already taken
-	`;
+`
 
-	await execa('node', ['index', '--help']).then(result => {
-		t.is(result.stdout, expected);
-	});
-});
+  await execa('node', ['index', '--help']).then(result => {
+    t.is(result.stdout, expected)
+  })
+})

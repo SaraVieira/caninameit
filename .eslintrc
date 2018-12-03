@@ -1,0 +1,6 @@
+{
+	"extends": "standard",
+	"rules": {
+		"no-tabs": 0
+	}
+}
